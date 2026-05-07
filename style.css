@@ -92,9 +92,50 @@ body {
 }
 
 .form-group input[type="text"]:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group input[type="number"]:focus {
     border-color: var(--primary-color);
     outline: none;
+}
+
+.price-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.price-input-wrapper:focus-within {
+    border-color: var(--primary-color);
+}
+
+.price-prefix {
+    background-color: #f3f4f6;
+    color: var(--text-gray);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 10px;
+    border-right: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.price-input-wrapper input[type="number"] {
+    flex: 1;
+    border: none;
+    border-radius: 0;
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    -moz-appearance: textfield;
+}
+
+.price-input-wrapper input[type="number"]::-webkit-outer-spin-button,
+.price-input-wrapper input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .form-help {
@@ -246,30 +287,50 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 12px;
 }
 
 .admin-card-details h4 {
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: var(--text-dark);
+    width: 100%;
+}
+
+.product-price-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 }
 
 .admin-card-details p {
     font-size: 14px;
     color: var(--text-gray);
     margin-bottom: 20px;
-    max-height: 4.5em; /* 3 lines * 1.5 line-height */
+    max-height: 4.5em;
     overflow: hidden;
     flex: 1;
     line-height: 1.5;
+    width: 100%;
 }
 
 .admin-card-controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 12px;
     margin-top: 10px;
+    width: 100%;
 }
 
 .admin-card-add-more {
@@ -347,38 +408,61 @@ body {
         width: 100%;
     }
     .admin-cards-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
     .admin-product-card {
         width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
+        margin: 0;
     }
 }
 
 @media (max-width: 600px) {
     .app-header {
-        padding: 16px 4%;
+        padding: 14px 4%;
     }
     .app-header h1 {
-        font-size: 20px;
+        font-size: 18px;
     }
     .app-main {
-        padding: 20px 4%;
+        padding: 16px 4%;
     }
     .admin-form-card {
-        padding: 18px;
+        padding: 16px;
+    }
+    .admin-form-card h4 {
+        font-size: 17px;
     }
     .admin-cards-wrapper {
         width: 100%;
     }
     .admin-cards-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
     }
     .admin-product-card {
         width: 100%;
         max-width: 100%;
-        margin: 0 auto;
+        margin: 0;
+    }
+    .admin-card-image {
+        height: 200px;
+    }
+    .admin-card-details h4 {
+        font-size: 16px;
+    }
+    .product-price-badge {
+        font-size: 13px;
+        padding: 4px 12px;
+    }
+    .admin-card-details p {
+        font-size: 13px;
+    }
+    .admin-card-controls {
+        gap: 10px;
+    }
+    .admin-card-delete {
+        padding: 7px 10px;
+        font-size: 13px;
     }
 }

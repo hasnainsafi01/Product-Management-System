@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (product) {
                 document.getElementById('adminProductName').value = product.name;
                 document.getElementById('adminProductDesc').value = product.description;
+                document.getElementById('adminProductPrice').value = product.price || '';
 
                 editingId = id;
                 formTitle.textContent = 'Edit Product';
@@ -164,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="admin-card-details">
                     <h4>${product.name}</h4>
+                    ${product.price ? `<div class="product-price-badge">PKR ${parseFloat(product.price).toLocaleString('en-PK', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>` : ''}
                     <p>${product.description}</p>
                     <div class="admin-card-controls">
                         <button type="button" class="admin-card-delete" data-id="${product.id}">
@@ -191,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(async () => {
             const name = document.getElementById('adminProductName').value;
             const description = document.getElementById('adminProductDesc').value;
+            const price = document.getElementById('adminProductPrice').value;
             const files = imageInput.files;
 
             let images = [];
@@ -203,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (index !== -1) {
                     adminProducts[index].name = name;
                     adminProducts[index].description = description;
+                    adminProducts[index].price = price;
                     if (images.length > 0) {
                         adminProducts[index].images = images;
                     }
@@ -214,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     id: Date.now(),
                     name,
                     description,
+                    price,
                     images
                 };
                 adminProducts.push(newProduct);

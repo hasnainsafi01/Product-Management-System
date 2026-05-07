@@ -30,6 +30,13 @@
                             <textarea id="adminProductDesc" rows="4" placeholder="Enter detailed description" required></textarea>
                         </div>
                         <div class="form-group">
+                            <label for="adminProductPrice">Product Price (PKR)</label>
+                            <div class="price-input-wrapper">
+                                <span class="price-prefix">PKR</span>
+                                <input type="number" id="adminProductPrice" placeholder="0.00" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="adminProductImages">Product Images (Max 3)</label>
                             <input type="file" id="adminProductImages" accept="image/*" multiple>
                             <small class="form-help">Select up to 3 images.</small>
