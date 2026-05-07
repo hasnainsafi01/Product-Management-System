@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <h1>Product Management System</h1>
+    </header>
+
+    <main class="app-main">
+        <div class="admin-layout">
+            <!-- Form Section (Top-Left) -->
+            <div class="admin-form-wrapper">
+                <div class="admin-form-card">
+                    <h4 id="formTitle">Add New Product</h4>
+                    <form id="productForm">
+                        <input type="hidden" id="editProductId" value="">
+                        <div class="form-group">
+                            <label for="adminProductName">Product Name</label>
+                            <input type="text" id="adminProductName" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminProductDesc">Product Description</label>
+                            <textarea id="adminProductDesc" rows="4" placeholder="Enter detailed description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminProductImages">Product Images (Max 3)</label>
+                            <input type="file" id="adminProductImages" accept="image/*" multiple>
+                            <small class="form-help">Select up to 3 images.</small>
+                        </div>
+                        <button type="submit" class="btn-primary w-100" id="adminSubmitBtn">Add New Product</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Cards Section (Grid on Right) -->
+            <div class="admin-cards-wrapper">
+                <div class="admin-cards-grid" id="adminProductsGrid">
+                    <!-- Dynamic cards will be rendered here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
