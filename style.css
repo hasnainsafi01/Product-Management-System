@@ -341,12 +341,13 @@ body {
         position: static;
     }
     .admin-cards-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        justify-items: center;
+        grid-template-columns: 1fr;
+        place-items: center;
     }
     .admin-product-card {
         width: 100%;
         max-width: 400px;
+        margin: 0 auto;
     }
 }
 
@@ -365,10 +366,11 @@ body {
     }
     .admin-cards-grid {
         grid-template-columns: 1fr;
-        justify-items: center;
+        place-items: center;
     }
     .admin-product-card {
         width: 100%;
         max-width: 100%;
+        margin: 0 auto;
     }
 }

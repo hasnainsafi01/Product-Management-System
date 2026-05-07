@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (product) {
                 document.getElementById('adminProductName').value = product.name;
                 document.getElementById('adminProductDesc').value = product.description;
-                
+
                 editingId = id;
                 formTitle.textContent = 'Edit Product';
                 adminSubmitBtn.textContent = 'Update Product';
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tempInput.type = 'file';
                 tempInput.accept = 'image/*';
                 tempInput.multiple = true;
-                
+
                 tempInput.onchange = async (event) => {
                     const files = event.target.files;
                     if (files.length > 0) {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         renderAdminProducts();
                     }
                 };
-                
+
                 tempInput.click();
             }
             return;
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 index = (index + 1) % count;
                 track.dataset.index = index;
                 track.style.transform = `translateX(-${index * 100}%)`;
-                
+
                 const cardImage = track.closest('.admin-card-image');
                 const counter = cardImage.querySelector('.slider-counter');
                 if (counter) counter.textContent = `${index + 1} / ${count}`;
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         adminProducts.forEach(product => {
             const card = document.createElement('div');
             card.className = 'admin-product-card';
-            
+
             let imageHtml = '';
             if (product.images && product.images.length > 0) {
                 const showDeleteBtn = product.images.length > 1;
@@ -143,8 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `).join('');
                 imageHtml = `<div class="slider-track" data-index="0" data-count="${product.images.length}">${imagesStr}</div>`;
-                
-                if(product.images.length > 1) {
+
+                if (product.images.length > 1) {
                     imageHtml += `
                         <button type="button" class="slider-prev">&#10094;</button>
                         <button type="button" class="slider-next">&#10095;</button>
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     productForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         // Change button state to Uploading
         adminSubmitBtn.textContent = 'Uploading...';
         adminSubmitBtn.disabled = true;
