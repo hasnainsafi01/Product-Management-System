@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (counter) counter.textContent = `${index + 1} / ${count}`;
             }
         });
-    }, 3000);
+    }, 3500);
 
     const renderAdminProducts = () => {
         adminProductsGrid.innerHTML = '';
